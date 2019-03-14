@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import fire from './Fire';
+// import fire from './Fire';
 
 export class About extends Component {
     
-    constructor(props){
-        super(props);
-        this.logout = this.logout.bind(this);
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.logout = this.logout.bind(this);
+    // }
 
-    logout() {
-        fire.auth().signOut();
-    }
+    // logout() {
+    //     fire.auth().signOut();
+    // }
 
     render() {
         return (
@@ -21,7 +21,7 @@ export class About extends Component {
                         <h3>
                             Lose weight or gain weight?<br></br>
                             Happle is a simple tool to find food recipes for you.
-                            <button onClick={this.logout}>Logout</button>
+                            {/* <button onClick={this.logout}>Logout</button> */}
 
 				      </h3>
                         <h4><i>Achieve your body's goal in an quick, easy, and fun way.</i></h4>
