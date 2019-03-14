@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import fire from './Fire';
 
 export class About extends Component {
     
+    constructor(props){
+        super(props);
+        this.logout = this.logout.bind(this);
+    }
+
+    logout() {
+        fire.auth().signOut();
+    }
 
     render() {
         return (

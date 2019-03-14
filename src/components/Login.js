@@ -11,8 +11,6 @@ class Login extends Component {
             email: '',
             password: ''
         };
-        this.logout = this.logout.bind(this);
-
     }
 
     handleChange(e) {
@@ -36,9 +34,7 @@ class Login extends Component {
             })
     }
     
-    logout() {
-        fire.auth().signOut();
-    }
+    
 
     render() {
         return (
@@ -50,14 +46,13 @@ class Login extends Component {
                         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <label or="exampleInputPassword1">Password</label>
                         <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                     </div>
                     <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
                     <button onClick={this.signup} style={{ marginLeft: '25px' }} className="btn btn-success">Signup</button>
                 </form>
 
-                <button onClick={this.logout}>Logout</button>
 
 
             </div>

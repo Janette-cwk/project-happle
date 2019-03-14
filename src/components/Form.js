@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import{helpblock, FormGroup, FormControl, ControlLabel,Form,Button} from "react-bootstrap";
+import { helpblock, FormGroup, FormControl, ControlLabel, Form, Button } from "react-bootstrap";
 import LoaderButton from "./LoaderButton";
 
+
 export class SignUpForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             isLoading: false,
@@ -14,10 +15,10 @@ export class SignUpForm extends Component {
         };
     }
 
-    validateForm(){
-        return(
+    validateForm() {
+        return (
             this.state.email.length > 0 &&
-            this.state.password.length >0 &&
+            this.state.password.length > 0 &&
             this.state.password === this.state.confirmPassword
         );
     }
@@ -27,17 +28,18 @@ export class SignUpForm extends Component {
             [e.target.id]: e.target.value
         });
     }
-    
+
     handleSubmit = async e => {
         e.preventDefault();
-        this.setState({isLoading: true});
-        this.setState({newUser: "test"});
-        this.setState({isLoading: false});
+        this.setState({ isLoading: true });
+        this.setState({ newUser: "test" });
+        this.setState({ isLoading: false });
     }
 
 
-    render(){
-        return(
+    render() {
+        return (
+           
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="email" bsSize="large">
                     <ControlLabel>Email</ControlLabel>
@@ -70,6 +72,8 @@ export class SignUpForm extends Component {
                     text="Signup"
                     loadingText="Signing up..." />
             </Form>
+
+
         );
     }
 
