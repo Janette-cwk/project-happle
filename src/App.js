@@ -64,9 +64,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="intro-content">
-          {this.state.user ? (<about/>) : (<Login />)}
-        </div>
+
+       
 
         <header>
           <Header />
@@ -100,8 +99,10 @@ class App extends Component {
         </div>
 
         <div className="container">
-          <h1>Sign Up</h1>
-          <SignUpForm />
+          {/* <h1>Sign Up</h1>
+          <SignUpForm /> */}
+          {this.state.user ? (<about/>) : (<Login />)}
+
         </div>
 
         <footer>
