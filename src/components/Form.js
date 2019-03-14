@@ -15,6 +15,7 @@ export class SignUpForm extends Component {
         };
     }
 
+
     validateForm() {
         return (
             this.state.email.length > 0 &&
@@ -39,7 +40,6 @@ export class SignUpForm extends Component {
 
     render() {
         return (
-           
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="email" bsSize="large">
                     <ControlLabel>Email</ControlLabel>

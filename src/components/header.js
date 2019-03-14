@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import fire from './Fire';
+
 
 export class Header extends Component {
+    
+    constructor(props){
+        super(props);
+        this.logout = this.logout.bind(this);
+    }
+
+    logout() {
+        fire.auth().signOut();
+    }
+
     render() {
         return (
             <header>
@@ -13,6 +25,8 @@ export class Header extends Component {
                         <li><a href="#how" id="howSmooth">How</a></li>
                         <li><a href="#result" id="resultSmooth">Result</a></li>
                         <li><a href="#reviews" id="reviewsSmooth">Review</a></li>
+                        <button onClick={this.logout}>Logout</button>
+
                     </ul>
                 </nav>
                 <div className="clearfix"></div>
