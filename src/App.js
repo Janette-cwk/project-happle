@@ -9,14 +9,32 @@ import Instruction from "./components/instruction";
 import About from "./components/about";
 import Result from "./components/Result";
 import Recipes from "./components/Recipes";
-
+import fire from './components/Fire';
+import Login from './components/Login';
 
 const API_KEY = "c1d6ebdfab337a5f6d26dd1abbb4ad09";
 const API_ID = "512e40ea";
 
-
-
 class App extends Component {
+
+
+
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      //console.log(user);
+      if (user) {
+        this.setState({ user });
+        //localStorage.setItem('user', user.uid);
+      } else {
+        this.setState({ user: null });
+        //localStorage.removeItem('user');
+      }
+    });
+  }
 
   state = {
     hits: []
@@ -46,6 +64,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="intro-content">
+          {this.state.user ? (<about/>) : (<Login />)}
+        </div>
+
         <header>
           <Header />
         </header>
