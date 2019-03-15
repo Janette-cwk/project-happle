@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 
 
 export class Review extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoading: false,
-            email: '',
-            password: '',
-            confirmPassword: '',
-            newUser: null
-        };
-    }
     render() {
         return (
             <section id="reviews">
@@ -55,20 +45,13 @@ export class Review extends Component {
                                     </div>
                                 </form>
 
-                                render() {
-                                return (
-            <Form onSubmit={this.handleSubmit}>
-                <FormGroup controlId="email" bsSize="large">
-                    <ControlLabel>Email</ControlLabel>
-                    <FormControl
-                        autoFocus
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}/>
-                </FormGroup>
-                </Form>
-                );
-        }
+                                <form>
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>
 
                     <button className="open-button">Write your story</button>
 
