@@ -38,14 +38,9 @@ export class Review extends Component {
                     <button className="open-button">Write your story</button>
 
                     <div className="form-popup" id="myForm">
-                    <form action="/action_page.php">
-                    First name:<br>
-                    <input type="text" name="firstname" value="Mickey"><br>
-  Last name:<br>
-  <input type="text" name="lastname" value="Mouse"><br><br>
-  <input type="submit" value="Submit">
-</form>
                         <form action="/action_page.php" className="form-container">
+                        <input type="text" name="review" value="Review"></input>
+                        <input type="submit" value="Submit"></input>
                             <h1>Login</h1>
 
                             <input className="nameID" type="text" placeholder="Enter Name" name="name" required></input>
@@ -55,34 +50,13 @@ export class Review extends Component {
                             <button type="submit" className="btn">Submit</button>
                             <button type="button" className="btn cancel" >Close</button>
                         </form>
-                        
                     </div>
                 </div>
             </section>
         );
-        
     }
-/*
-    render() {
-        return (
-            <Form onSubmit={this.handleSubmit}>
-                <FormGroup controlId="review" bsSize="large">
-                    <ControlLabel>Review</ControlLabel>
-                    <FormControl
-                        autoFocus
-                        type="review"
-                        value={this.state.email}
-                        onChange={this.handleChange}/>
-                </FormGroup>
 
-      //
-  class Post extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            done: false
-        }
-    }
+     
 
     render() {
         return (
@@ -126,7 +100,7 @@ export class Review extends Component {
             </div>
         )
     }
-*/
+
     /**
      * mark as not done posting
      */
