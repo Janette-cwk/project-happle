@@ -44,6 +44,21 @@ export class Review extends Component {
                                     </div>
                                 </form>
 
+                                render() {
+                                return (
+            <Form onSubmit={this.handleSubmit}>
+                <FormGroup controlId="email" bsSize="large">
+                    <ControlLabel>Email</ControlLabel>
+                    <FormControl
+                        autoFocus
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}/>
+                </FormGroup>
+                </Form>
+                );
+        }
+
                     <button className="open-button">Write your story</button>
 
                     <div className="form-popup" id="myForm">
