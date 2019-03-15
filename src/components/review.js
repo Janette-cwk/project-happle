@@ -33,18 +33,16 @@ export class Review extends Component {
                             </h4>
                         </div>
                     </div>
-                    render() {
-    return (
-      <div className="App">
-          <form onSubmit={this.handleSubmit}>
-              <label>Name</label>
-              <input type="text" value={this.state.inputvalue} onChange={this.handleChange}/>
-              <input type="submit" value="Submit"/>
-          </form>
-      </div>
-    );
-  }
 
+                    <form>
+                                    <div className="col-md-12">
+                                    <textarea className="form-control" placeholder="Write Review"
+                                              rows="20" defaultValue=""/>
+                                    </div>
+                                    <div className="col-md-12">
+                                        <input onClick={i => this.done()} type="button" className="form-control" value="Submit"/>
+                                    </div>
+                                </form>
 
                     <button className="open-button">Write your story</button>
 
@@ -67,7 +65,6 @@ export class Review extends Component {
         );
     }
 
-     
 
     render() {
         return (
@@ -101,10 +98,10 @@ export class Review extends Component {
                         </div>
                     </section>
 
-                    <section className="post secret">
+                    <section className="post review">
                         <div className="container">
                             <h1>You can choose to...</h1>
-                            <input onClick={i => this.unDone()} type="button" className="form-control" value="tell more secrets"/>
+                            <input onClick={i => this.unDone()} type="button" className="form-control" value="write more reviews"/>
                         </div>
                     </section>
                 </div>
