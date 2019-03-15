@@ -38,7 +38,7 @@ export class Review extends Component {
                     <button className="open-button">Write your story</button>
 
                     <div className="form-popup" id="myForm">
-                        <form action="/action_page.php" className="form-container">
+                        <form action="/action_page.php" /*className="form-container"*/>
                         <input type="text" name="review" value="Review"></input>
                         <input type="submit" value="Submit"></input>
                             <h1>Login</h1>
