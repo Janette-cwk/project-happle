@@ -17,9 +17,9 @@ const API_ID = "512e40ea";
 
 class App extends Component {
   
-  componentDidMount() {
+  /*componentDidMount() {
     this.authListener();
-  }
+  }*/
 
   authListener() {
     fire.auth().onAuthStateChanged((user) => {
@@ -53,10 +53,10 @@ class App extends Component {
     const hits = JSON.parse(json);
     this.setState({ hits: hits });
   }
-  componentDidUpdate = () => {
+  /*componentDidUpdate = () => {
     const hits = JSON.stringify(this.state.hits);
     localStorage.setItem("hits", hits);
-  }
+  }*/
 
   myFunction() {
     var x = document.getElementById("cards");
