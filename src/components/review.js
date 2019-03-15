@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 
+
 export class Review extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: false,
+            email: '',
+            password: '',
+            confirmPassword: '',
+            newUser: null
+        };
+    }
     render() {
         return (
             <section id="reviews">
