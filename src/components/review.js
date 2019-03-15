@@ -54,6 +54,18 @@ export class Review extends Component {
         );
     }
 
+    render() {
+        return (
+            <Form onSubmit={this.handleSubmit}>
+                <FormGroup controlId="review" bsSize="large">
+                    <ControlLabel>Review</ControlLabel>
+                    <FormControl
+                        autoFocus
+                        type="review"
+                        value={this.state.review}
+                        onChange={this.handleChange}/>
+                </FormGroup>
+
       //
   class Post extends Component {
     constructor(props) {
