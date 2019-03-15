@@ -45,14 +45,6 @@ export class Review extends Component {
                                     </div>
                                 </form>
 
-                                <form>
-  <label>
-    Name:
-    <input type="text" name="name" />
-  </label>
-  <input type="submit" value="Submit" />
-</form>
-
                     <button className="open-button">Write your story</button>
 
                     <div className="form-popup" id="myForm">
