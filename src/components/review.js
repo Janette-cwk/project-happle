@@ -33,6 +33,17 @@ export class Review extends Component {
                             </h4>
                         </div>
                     </div>
+                    render() {
+    return (
+      <div className="App">
+          <form onSubmit={this.handleSubmit}>
+              <label>Name</label>
+              <input type="text" value={this.state.inputvalue} onChange={this.handleChange}/>
+              <input type="submit" value="Submit"/>
+          </form>
+      </div>
+    );
+  }
 
 
                     <button className="open-button">Write your story</button>
