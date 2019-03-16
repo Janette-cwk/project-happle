@@ -9,69 +9,54 @@ import Instruction from "./components/instruction";
 import About from "./components/about";
 import Result from "./components/Result";
 import Recipes from "./components/Recipes";
-import fire from './components/Fire';
-import Login from './components/Login';
+
 
 const API_KEY = "c1d6ebdfab337a5f6d26dd1abbb4ad09";
 const API_ID = "512e40ea";
 
-class App extends Component {
-  
-  /*componentDidMount() {
-    this.authListener();
-  }*/
 
-  authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-      //console.log(user);
-      if (user) {
-        this.setState({ user });
-        //localStorage.setItem('user', user.uid);
-      } else {
-        this.setState({ user: null });
-        //localStorage.removeItem('user');
-      }
-    });
-  }
+
+class App extends Component {
 
   state = {
-    hits: []
+    hits: [],
+    calorie: 4000
   }
 
   getRecipe = async (e) => {
     const recipeName = e.target.elements.recipeName.value;
+    const recipeCalorie = e.target.elements.recipeCalorie.value;
+    console.log("max calorie", recipeCalorie);
     e.preventDefault();
     const api_call = await fetch
       (`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?app_id=${API_ID}&app_key=${API_KEY}&q=${recipeName}&from=0&to=6`);
 
     const data = await api_call.json();
-    this.setState({ hits: data.hits });
+    const dataHitsFilteredCalorie = data.hits.filter(recipe => recipe.recipe.calories <= recipeCalorie);
+    this.setState({ hits: dataHitsFilteredCalorie });
     console.log(this.state.hits);
   }
-  componentDidMount = () => {
-    const json = localStorage.getItem("hits");
-    const hits = JSON.parse(json);
-    this.setState({ hits: hits });
-  }
-  /*componentDidUpdate = () => {
-    const hits = JSON.stringify(this.state.hits);
-    localStorage.setItem("hits", hits);
-  }*/
+  // componentDidMount = () => {
+  //   const json = localStorage.getItem("hits");
+  //   const hits = JSON.parse(json);
+  //   this.setState({ hits: hits });
+  // }
+  // componentDidUpdate = () => {
+  //   const hits = JSON.stringify(this.state.hits);
+  //   localStorage.setItem("hits", hits);
+  // }
 
-  myFunction() {
-    var x = document.getElementById("cards");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-
+    changeCalorie = (e) => {
+        const recipeCalorie = e.target.value;
+        this.setState({
+            hits: this.state.hits,
+            calorie: recipeCalorie
+        })
+    };
 
   render() {
     return (
       <div className="App">
-      
         <header>
           <Header />
         </header>
@@ -89,11 +74,13 @@ class App extends Component {
         </div>
 
         <div className="result">
+          <h1>Get your recipe here</h1>
           <div className="app">
             <header className="App-header">
               <h1 className="App-title">Recipe Generator</h1>
             </header>
-            <Result getRecipe={this.getRecipe} />
+              <p>Max Calorie: {this.state.calorie}</p>
+            <Result getRecipe={this.getRecipe} changeCalorie={this.changeCalorie} />
             <Recipes hits={this.state.hits} />
           </div>
         </div>
@@ -103,7 +90,8 @@ class App extends Component {
         </div>
 
         <div className="container">
-          {this.state.user ? (<about/>) : (<Login />)}
+          <h1>Sign Up</h1>
+          <SignUpForm />
         </div>
 
         <footer>
