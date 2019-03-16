@@ -6,7 +6,6 @@ class Review extends Component {
         this.state = {
             reviews: [],
             nReview: 0,
-            email: '',
         };
         this.moreReview();
     }
@@ -43,22 +42,7 @@ class Review extends Component {
             </div>
         );
 
-        }
-        render() {
-            return (
-                <Form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <ControlLabel>Email</ControlLabel>
-                        <FormControl
-                            autoFocus
-                            type="email"
-                            value={this.state.email}
-                            onChange={this.handleChange}/>
-                    </FormGroup>
-                    </Form>
-                    );
-        }
-    
+        }  
     }
 
 export class Review extends Component {
