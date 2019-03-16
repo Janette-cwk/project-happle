@@ -4,48 +4,14 @@ class Review extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            done: false,
             reviews: [],
             nReview: 0,
         };
         this.moreReview();
     }
 
-    render() {
-        return (
-            <div className="Review">
-                {this.state["reviews"].map((review) =>
-                    <section className="review">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-1"> </div>
-                                <div className="col-md-10"><h1>{review["title"]}</h1>
-                                    <p>{review["content"]}</p></div>
-                                <div className="col-md-1"> </div>
-                            </div>
-                        </div>
-                    </section>
-                )}
-                <section className="review">
-                    <div className="container">
-                        <div className="row post">
-                            <div className="col-md-1"> </div>
-                            <div className="col-md-10">
-                                <h1>Want to read more?</h1>
-                                <input type="button" onClick={i => this.moreReview()}
-                                       className="form-control"
-                                       value="Write more reviews"/>
-                            </div>
-                            <div className="col-md-1"> </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        );
 
-        }  
-    }
-
-export class Review extends Component {
     render() {
         return (
             <section id="reviews">
