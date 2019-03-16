@@ -44,32 +44,7 @@ export class Review extends Component {
                                         <input onClick={i => this.done()} type="button" className="form-control" value="Submit"/>
                                     </div>
                                 </form>
-
-                    <button className="open-button">Write your story</button>
-
-                    <div className="form-popup" id="myForm">
-                        <form action="/action_page.php" /*className="form-container"*/>
-                        <input type="text" name="review" value="Review"></input>
-                        <input type="submit" value="Submit"></input>
-                            <h1>Login</h1>
-
-                            <input className="nameID" type="text" placeholder="Enter Name" name="name" required></input>
-
-                            <textarea name="contactMessage" id="reviewID" placeholder="Write your story..." rows="10" cols="50" required=""></textarea>
-
-                            <button type="submit" className="btn">Submit</button>
-                            <button type="button" className="btn cancel" >Close</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
-
-    render() {
-        return (
-            <div>
+                                <div>
                 <div className={this.state["done"] ? 'hidden' : ''}>
                     <section className="secret">
                         <div className="container">
@@ -107,18 +82,26 @@ export class Review extends Component {
                     </section>
                 </div>
             </div>
-        )
-    }
+      
+                    <button className="open-button">Write your story</button>
 
-    /**
-     * mark as not done posting
-     */
-    unDone() {
-        this.setState({
-            done: false
-        })
-    }
+                    <div className="form-popup" id="myForm">
+                        <form action="/action_page.php" /*className="form-container"*/>
+                        <input type="text" name="review" value="Review"></input>
+                        <input type="submit" value="Submit"></input>
+                            <h1>Login</h1>
 
-    //
+                            <input className="nameID" type="text" placeholder="Enter Name" name="name" required></input>
+
+                            <textarea name="contactMessage" id="reviewID" placeholder="Write your story..." rows="10" cols="50" required=""></textarea>
+
+                            <button type="submit" className="btn">Submit</button>
+                            <button type="button" className="btn cancel" >Close</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 }
 export default Review;
