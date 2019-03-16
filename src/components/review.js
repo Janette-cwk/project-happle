@@ -103,5 +103,17 @@ export class Review extends Component {
             </section>
         );
     }
+    unDone() {
+        this.setState({
+            done: false
+        })
+    }
+
+
+    done() {
+        this.setState({
+            done: true
+        })
+    }
 }
 export default Review;
