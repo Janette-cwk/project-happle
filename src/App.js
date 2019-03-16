@@ -11,15 +11,16 @@ import Result from "./components/Result";
 import Recipes from "./components/Recipes";
 import fire from './components/Fire';
 import Login from './components/Login';
+import AfterSignup from './components/AfterSignup';
 
 const API_KEY = "c1d6ebdfab337a5f6d26dd1abbb4ad09";
 const API_ID = "512e40ea";
 
 class App extends Component {
   
-  /*componentDidMount() {
+  componentDidMount() {
     this.authListener();
-  }*/
+  }
 
   authListener() {
     fire.auth().onAuthStateChanged((user) => {
@@ -48,24 +49,24 @@ class App extends Component {
     this.setState({ hits: data.hits });
     console.log(this.state.hits);
   }
-  componentDidMount = () => {
-    const json = localStorage.getItem("hits");
-    const hits = JSON.parse(json);
-    this.setState({ hits: hits });
-  }
+  // componentDidMount = () => {
+  //   const json = localStorage.getItem("hits");
+  //   const hits = JSON.parse(json);
+  //   this.setState({ hits: hits });
+  // }
   /*componentDidUpdate = () => {
     const hits = JSON.stringify(this.state.hits);
     localStorage.setItem("hits", hits);
   }*/
 
-  myFunction() {
-    var x = document.getElementById("cards");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
+  // myFunction() {
+  //   var x = document.getElementById("cards");
+  //   if (x.style.display === "none") {
+  //     x.style.display = "block";
+  //   } else {
+  //     x.style.display = "none";
+  //   }
+  // }
 
 
   render() {
@@ -103,7 +104,7 @@ class App extends Component {
         </div>
 
         <div className="container">
-          {this.state.user ? (<about/>) : (<Login />)}
+          {this.state.user ? (<AfterSignup/>) : (<Login />)}
         </div>
 
         <footer>
