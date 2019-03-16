@@ -5,7 +5,8 @@ class Review extends Component {
         super(props);
         this.state = {
             reviews: [],
-            nSecrets: 0,
+            nReview: 0,
+            email: '',
         };
         this.moreReview();
     }
@@ -43,8 +44,22 @@ class Review extends Component {
         );
 
         }
+        render() {
+            return (
+                <Form onSubmit={this.handleSubmit}>
+                    <FormGroup controlId="email" bsSize="large">
+                        <ControlLabel>Email</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}/>
+                    </FormGroup>
+                    </Form>
+                    );
+        }
+    
     }
-
 
 export class Review extends Component {
     render() {
@@ -91,7 +106,7 @@ export class Review extends Component {
                                 </form>
                                 <div>
                 <div className={this.state["done"] ? 'hidden' : ''}>
-                    <section className="secret">
+                    <section className="review">
                         <div className="container">
                         </div>
                     </section>
@@ -113,7 +128,7 @@ export class Review extends Component {
                     </section>
                 </div>
                 <div className={this.state["done"] ? '' : 'hidden'}>
-                    <section className="secret">
+                    <section className="review">
                         <div className="container">
                             <h1>Your review has been recorded</h1>
                         </div>
