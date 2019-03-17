@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import SignUpForm from "./components/Form";
 import Header from "./components/header";
 import Intro from "./components/intro";
 import Review from "./components/review";
@@ -12,12 +11,33 @@ import Recipes from "./components/Recipes";
 import fire from './components/Fire';
 import Login from './components/Login';
 import AfterSignup from './components/AfterSignup';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const API_KEY = "c1d6ebdfab337a5f6d26dd1abbb4ad09";
 const API_ID = "512e40ea";
 
+// var firestore = firebase.firestore();
+
+// const docRef = firestore.doc("samples/sandwichData");
+// const titleOutput = document.querySelector("titleOutput");
+// const saveButton = document.querySelector("saveButton");
+
+// saveButton.addEventListener("click", function(){
+//   const textToSave = inputTextField.value;
+//   console.log("Your saved menu is " + textToSave);
+//   docRef.set({
+//     hotDogStatus: textToSave 
+//   }).then(function() {
+//     console.log("Saved");
+//   }).catch(function(error) {
+//     console.log("Error: ", error);
+//   });
+// })
+
+
+
 class App extends Component {
-  
+
   componentDidMount() {
     this.authListener();
   }
@@ -27,13 +47,12 @@ class App extends Component {
       //console.log(user);
       if (user) {
         this.setState({ user });
-        //localStorage.setItem('user', user.uid);
       } else {
         this.setState({ user: null });
-        //localStorage.removeItem('user');
       }
     });
   }
+
 
   state = {
     hits: []
@@ -60,7 +79,7 @@ class App extends Component {
   }*/
 
   // myFunction() {
-  //   var x = document.getElementById("cards");
+  //   const x = document.getElementById("cards");
   //   if (x.style.display === "none") {
   //     x.style.display = "block";
   //   } else {
@@ -71,57 +90,58 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      
-        <header>
-          <Header />
-        </header>
+      <BrowserRouter>
+        <div className="App">
+         
 
-        <div className="intro-content">
-          <Intro />
-        </div>
-
-        <div className="about">
-          <About />
-        </div>
-
-        <div className="how">
-          <Instruction />
-        </div>
-
-        <div className="result">
-          <div className="app">
-            <header className="App-header">
-              <h1 className="App-title">Recipe Generator</h1>
-            </header>
-            <Result getRecipe={this.getRecipe} />
-            <Recipes hits={this.state.hits} />
+          <div>
+            <Header />
           </div>
-        </div>
 
-        <div className="reviews">
-          <Review />
-        </div>
+          <div className="intro-content">
+            <Intro />
+          </div>
 
-        <div className="container">
-          {this.state.user ? (<AfterSignup/>) : (<Login />)}
-        </div>
+          <div className="about">
+            <About />
+          </div>
 
-        <footer>
-          <div className="row">
-            <div className="copyright">
-              <span>© Copyright Edward Halim 2019.</span>
-              <span>Design by <a href="http://www.linkedin.com/in/edwardhalim">Edward Halim</a></span>
+          <div className="how">
+            <Instruction />
+          </div>
+
+          <div className="result">
+            <div className="app">
+              <header className="App-header">
+                <h1 className="App-title">Recipe Generator</h1>
+              </header>
+              <Result getRecipe={this.getRecipe} />
+              <Recipes hits={this.state.hits} />
             </div>
           </div>
 
-        </footer>
-        <div id="preloader">
-          <div id="loader"></div>
+          <div className="reviews">
+            <Review />
+          </div>
+
+          <div className="container">
+            {this.state.user ? (<App />) : null}
+          </div>
+
+          <footer>
+            <div className="row">
+              <div className="copyright">
+                <span>© Copyright Happle 2019.</span>
+              </div>
+            </div>
+
+          </footer>
+          <div id="preloader">
+            <div id="loader"></div>
+          </div>
         </div>
-      </div>
 
-
+      </BrowserRouter>
     );
   }
 }
