@@ -421,7 +421,7 @@ nav ul li a:hover{
 	color: white;
 	font-family: "poppins-bold", sans-serif;
 	font-size: 2rem;
-	line-height: 1;
+	line-height: 0;
   margin-bottom: 0;
   margin-left: 620px;
 	letter-spacing: .25rem;
@@ -454,6 +454,17 @@ nav ul li a:hover{
  * Intro
  * --------------------------------------------------------------- 
  */
+ @media(max-width:1024px) {
+	.intro-content h1{
+		margin-left: 166px;
+	}
+	.intro-content h5{
+		margin-left: 340pt;
+	}
+	.intro-content .btn{
+		margin-left:472px;
+	}
+}
 @media(max-width:768px) {
 	#intro {
 		min-height: 660px;
@@ -467,19 +478,37 @@ nav ul li a:hover{
 	.intro-content .intro-position {
 		font-size: 1.3rem;
 	}
+	header{
+		width: 100%;
+	}
+	.intro-content h1{
+		margin-left: 166px;
+	}
+	.intro-content h5{
+		margin-left: 247pt;
+		line-height: 1;
+	}
+	.intro-content .btn{
+		margin-left:343px;
+	}
 }
 @media(max-width:600px) {
 	#intro {
 		min-height: 600px;
 	}
 	.intro-content h1 {
-		font-size: 4.6rem;
+		font-size: 4.74rem;
 		margin-bottom: .6rem;
+		margin-left: 20px;
 	}
 	.intro-content h5 {
 		font-size: 1.5rem;
 		margin-bottom: .3rem;
 		letter-spacing: .2rem;
+		margin-left:180px;
+	}
+	#get-started{
+		margin-left:130pt;
 	}
 	.intro-content .intro-position {
 		font-size: 1.2rem;
@@ -567,7 +596,12 @@ nav ul li a:hover{
 		text-align: center;
 		margin-top: 3rem;
 	}
+	.section-intro{
+		font-weight: bold;
+	}
 }
+
+
 
 
 /** result 
@@ -713,6 +747,30 @@ nav ul li a:hover{
 	margin-bottom: 5rem;
 	opacity: 0.7;
 }
+@media(max-width:425px){
+	#reviews .section-intro h1{
+		margin-left: 150px;
+	}
+	#reviews .review-content h4{
+		font-size: 11pt;
+	}
+}
+@media(min-width:768px){
+	#reviews .section-intro h1{
+		margin-left: 311px;
+	}
+}	
+@media(min-width:1024px){
+	#reviews .section-intro h1{
+		margin-left: 380px;
+	}
+	#third-review h4{
+		margin-left:72px;
+	}
+	#third-review i{
+		margin-left: 42px;
+	}
+}
 
 
 
@@ -821,6 +879,8 @@ nav ul li a:hover{
 	text-align: end;
 	max-width: 900px;
 }
+
+
 
 /* LOGIN  
 ========== */
