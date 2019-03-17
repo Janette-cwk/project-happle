@@ -55,17 +55,21 @@ class App extends Component {
 
 
   state = {
-    hits: []
+    hits: [],
+    calorie: 4000
   }
 
   getRecipe = async (e) => {
     const recipeName = e.target.elements.recipeName.value;
+    const recipeCalorie = e.target.elements.recipeCalorie.value;
+    console.log("max calorie", recipeCalorie);
     e.preventDefault();
     const api_call = await fetch
       (`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?app_id=${API_ID}&app_key=${API_KEY}&q=${recipeName}&from=0&to=6`);
 
     const data = await api_call.json();
-    this.setState({ hits: data.hits });
+    const dataHitsFilteredCalorie = data.hits.filter(recipe => recipe.recipe.calories <= recipeCalorie);
+    this.setState({ hits: dataHitsFilteredCalorie });
     console.log(this.state.hits);
   }
   // componentDidMount = () => {
